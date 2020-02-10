@@ -10,12 +10,17 @@ import demo_connection as dc
 
 class Operation:
 
+	def switch_demo(self,argument):
+		func = switcher.get(argument, "Invalid choice !!!")
+		return func
+
 	def insertData(self):
 		p_name = input("Enter product name : ")
 		price = input("Enter price : ")
 
 		cr.execute("INSERT INTO PRODUCT (PRODUCT_NAME,PRICE) VALUES (?,?)",(p_name,price))
 		db.conn.commit()
+		print("Inserted Successfully !!\n")
 
 		# return self.insert_data
 	def readData(self):
@@ -26,16 +31,13 @@ class Operation:
 
 		db.conn.commit()
 
-	def updateData(self):
-		table_name = input("Enter table name : ")
-		id = input("Enter id for search : ")
-
-
+	# def updateData(self):
+	# 	table_name = input("Enter table name : ")
+	# 	id = input("Enter id for search : ")
 
 if __name__ == '__main__':
 
 	op = Operation()
-
 	db = dc.DemoConnection('DEMO')
 
 	db.selectServerHost('CS79-PC\\SQLEXPRESS')
@@ -43,9 +45,14 @@ if __name__ == '__main__':
 	db.selectPassword('vini@123')
 	cr = db.createConnection()
 
-	# op.insertData()
-	op.readData()
+	print("1 : for Insert in table")
+	print("2 : for Read data from table")
 
-	# cr.execute(op.insertData())
-	# for row in cr:
-	# 	print(row)
+	ch = int(input("Enter your choice : "))
+
+	switcher = {1: op.insertData,2: op.readData}
+	
+	op.switch_demo(ch)
+	
+
+
