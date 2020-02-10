@@ -10,9 +10,14 @@ import demo_connection as dc
 
 class Operation:
 
-	def switch_demo(self,argument):
-		func = switcher.get(argument, "Invalid choice !!!")
-		return func
+	def createTable(self):
+		table_name = input("Enter table name : ")
+		n = int(input("Enter total no. of columns : "))
+		list1 = []
+
+		for i in range(0,n):
+			list1.append(int(input(f'Column name {i} : ')))
+
 
 	def insertData(self):
 		p_name = input("Enter product name : ")
@@ -31,9 +36,9 @@ class Operation:
 
 		db.conn.commit()
 
-	# def updateData(self):
-	# 	table_name = input("Enter table name : ")
-	# 	id = input("Enter id for search : ")
+	def updateData(self):
+		table_name = input("Enter table name : ")
+		id = input("Enter id for search : ")
 
 if __name__ == '__main__':
 
@@ -45,14 +50,7 @@ if __name__ == '__main__':
 	db.selectPassword('vini@123')
 	cr = db.createConnection()
 
-	print("1 : for Insert in table")
-	print("2 : for Read data from table")
 
-	ch = int(input("Enter your choice : "))
-
-	switcher = {1: op.insertData,2: op.readData}
-	
-	op.switch_demo(ch)
 	
 
 
