@@ -1,23 +1,6 @@
 import demo_connection as dc
 
-# dc = dc.DemoConnection(input("Enter database name : "))
-
-# dc.selectServerHost(input("Enter server host name : "))
-# dc.selectUsername(input("Enter user name : "))
-# dc.selectPassword(input("Enter password : "))
-# dc.createConnection()
-# dc.createTable(input("Enter table name : "))
-
 class Operation:
-
-	def createTable(self):
-		table_name = input("Enter table name : ")
-		n = int(input("Enter total no. of columns : "))
-		list1 = []
-
-		for i in range(0,n):
-			list1.append(int(input(f'Column name {i} : ')))
-
 
 	def insertData(self):
 		p_name = input("Enter product name : ")
@@ -43,11 +26,17 @@ class Operation:
 if __name__ == '__main__':
 
 	op = Operation()
-	db = dc.DemoConnection('DEMO')
+	# db = dc.DemoConnection('DEMO')
 
-	db.selectServerHost('CS79-PC\\SQLEXPRESS')
-	db.selectUsername('vini.patel')
-	db.selectPassword('vini@123')
+	# db.selectServerHost('CS79-PC\\SQLEXPRESS')
+	# db.selectUsername('vini.patel')
+	# db.selectPassword('vini@123')
+	db = dc.DemoConnection(input("Enter database name : "))
+
+	db.selectServerHost(input("Enter server host name : "))
+	db.selectUsername(input("Enter user name : "))
+	db.selectPassword(input("Enter password : "))
+
 	cr = db.createConnection()
 
 
