@@ -19,7 +19,7 @@ To insert data
 	address:{
 	house:"221B",
 	street:"Baker Street",
-	city:"London"
+	city:"London"sni
 	}
 }
 
