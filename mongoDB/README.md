@@ -208,5 +208,6 @@ db.department.aggregate([
       }
 ]).pretty();
 
+```
 
 ![](mongo_left_outer_join_3.PNG)
