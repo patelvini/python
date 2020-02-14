@@ -33,7 +33,7 @@ for i in res:
 	print(i)
 
 
-# # q2 = db.Table('CUSTOMER5', metadata, db.Column('id',db.Integer, primary_key = True), db.Column('name', db.String), db.Column('lastname',db.String))
+q2 = db.Table('CUSTOMER5', metadata, db.Column('id',db.Integer, primary_key = True), db.Column('name', db.String), db.Column('lastname',db.String))
 
 # # q2 = db.Table('CUSTOMER6', metadata, db.Column('id', db.Integer, primary_key = True, ))
 

@@ -19,25 +19,49 @@ class Operation:
 
 		db.conn.commit()
 
-	def updateData(self):
+	def createTable(self):
 		table_name = input("Enter table name : ")
-		id = input("Enter id for search : ")
+
+		query = "CREATE TABLE "+table_name+"(ID INT PRIMARY KEY IDENTITY (1,1), "
+
+		while True:
+			colname=input("Enter column name, exit to stop adding columns : ")
+			if colname=="exit":
+				query+=");"
+				break
+			dtype=input("Enter column data type: INT,CHAR OR VARCHAR : ")
+			if dtype=="INT":
+				query+=colname+" "+dtype+", "
+			else:
+				size=input("Enter size for column : ")
+				query+=colname+" "+dtype+" ("+size+"), "
+
+		cr.execute(query)
+		db.conn.commit()
+
+		print("Table created Successfully !!")
+
+	# def updateData(self):
+	# 	table_name = input("Enter table name : ")
+	# 	id = input("Enter id for search : ")
 
 if __name__ == '__main__':
 
 	op = Operation()
-	# db = dc.DemoConnection('DEMO')
+	db = dc.DemoConnection('DEMO')
 
-	# db.selectServerHost('CS79-PC\\SQLEXPRESS')
-	# db.selectUsername('vini.patel')
-	# db.selectPassword('vini@123')
-	db = dc.DemoConnection(input("Enter database name : "))
+	db.selectServerHost('CS79-PC\\SQLEXPRESS')
+	db.selectUsername('vini.patel')
+	db.selectPassword('vini@123')
+	# db = dc.DemoConnection(input("Enter database name : "))
 
-	db.selectServerHost(input("Enter server host name : "))
-	db.selectUsername(input("Enter user name : "))
-	db.selectPassword(input("Enter password : "))
+	# db.selectServerHost(input("Enter server host name : "))
+	# db.selectUsername(input("Enter user name : "))
+	# db.selectPassword(input("Enter password : "))
 
 	cr = db.createConnection()
+
+	op.createTable()
 
 
 	

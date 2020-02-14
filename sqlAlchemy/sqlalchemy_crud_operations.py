@@ -39,20 +39,22 @@ class sqlAlchemyOperation:
 		else:
 			print("No table found !!!")
 
-	# def inserData(self,*values):
+	# def inserData(self):
 	# 	table_name = input("Enter table name : ")
 	# 	self.metadata.reflect(bind = engine)
 
 	# 	if table_name in self.metadata.tables:
 	# 		result = Table(table_name, self.metadata, autoload = True, autoload_with = engine)
 	# 		list1 = result.columns.keys()
+			
 	# 		print(f"Columns in table {table_name} : ",list1)
 
-			
-	# 		ins = result.insert().values()
-	# 		self.connection.execute(ins)
-			
-	# 		print("Inserted successfully !!!")
+	# 		n = int(input("Enter how many records you want to insert : "))
+
+	# 		for i in range(0,n):
+	# 			ins = (result.insert(),{list1[]})	
+	# 			self.connection.execute(ins)
+	# 			print("Inserted successfully !!!")		
 
 	# 	else:
 	# 		print("No table found !!!")
@@ -85,3 +87,5 @@ if __name__ == '__main__':
 	# op.readData()
 
 	op.inserData()
+
+
